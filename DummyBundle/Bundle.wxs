@@ -1,0 +1,20 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:bal="http://wixtoolset.org/schemas/v4/wxs/bal">
+  <Bundle Name="DummyBundle"
+          Manufacturer="TODO Manufacturer"
+          Version="1.0.0.0"
+          UpgradeCode="3410a1a4-d729-4820-beba-7805fee1c418"
+          IconSourceFile="dummy.ico">
+    <BootstrapperApplication>
+		<bal:WixInternalUIBootstrapperApplication Theme="standard"
+		                                          LogoFile="dummy.ico"/>
+    </BootstrapperApplication>
+
+    <Chain>
+		<PackageGroupRef Id="NetFx48RedistAsPrereq"/>
+		<PackageGroupRef Id="VcRedistInstaller"/>
+       <MsiPackage SourceFile="$(var.DummyMsi.TargetDir)DummyMsi.msi" bal:DisplayInternalUICondition="true" />
+    </Chain>
+
+  </Bundle>
+</Wix>
