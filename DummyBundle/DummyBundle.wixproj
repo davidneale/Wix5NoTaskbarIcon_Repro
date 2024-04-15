@@ -1,0 +1,16 @@
+﻿<Project Sdk="WixToolset.Sdk/5.0.0">
+  <PropertyGroup>
+    <OutputType>Bundle</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="dummy.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="WixToolset.Bal.wixext" Version="5.0.0" />
+    <PackageReference Include="WixToolset.Netfx.wixext" Version="5.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DummyLib\DummyLib.wixproj" />
+    <ProjectReference Include="..\DummyMsi\DummyMsi.wixproj" />
+  </ItemGroup>
+</Project>

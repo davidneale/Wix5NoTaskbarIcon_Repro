@@ -1,0 +1,28 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:util="http://wixtoolset.org/schemas/v4/wxs/util">
+  <Fragment>
+    <util:ProductSearch Id="VcRuntimeX64"
+                        Result="version"
+                        Variable="VCRUNTIME_X64_VER"
+                        UpgradeCode="36F68A90-239C-34DF-B58C-64B30153CE35" />
+	  <Variable Name="VCRUNTIME_VER" Type="version" Value="14.31.31103.o" />
+
+	  <PackageGroup Id="VcRedistInstaller">
+		  <ExePackage Id="VcRedistExe"
+		              Cache="remove"
+		              PerMachine="yes"
+					  Permanent="yes"
+		              Vital="yes"
+		              Compressed="yes"
+		              Protocol="burn"
+		              DetectCondition="VCRUNTIME_X64_VER &gt;= VCRUNTIME_VER"
+					  SourceFile="VC_redist.x64.exe"
+		              InstallArguments="/q:a">
+			  <ExitCode Value="1638" Behavior="success" />
+
+		  </ExePackage>
+
+	  </PackageGroup>
+
+  </Fragment>
+</Wix>
